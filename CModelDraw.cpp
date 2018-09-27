@@ -103,14 +103,29 @@ void CModelDraw::OnLButtonDown(UINT nFlags, CPoint point)
 	Point pt;
 	double d0 = pixelToX(point.x), d1, doubInt;
 	d1 = modf(d0, &doubInt);
-	if (d1 < 0.5) pt.X = (int)doubInt;
-	else pt.X = (int)++doubInt;
+	if (d1 > 0)
+	{
+		if (d1 < 0.5) pt.X = (int)doubInt;
+		else pt.X = (int)++doubInt;
+	}
+	else
+	{
+		if (fabs(d1) < 0.5) pt.X = (int)doubInt;
+		else pt.X = (int)--doubInt;
+	}
 
 	d0 = pixelToY(point.y);
 	d1 = modf(d0, &doubInt);
-	if (d1 < 0.5) pt.Y = (int)doubInt;
-	else pt.Y = (int)++doubInt;
-
+	if (d1 > 0)
+	{
+		if (d1 < 0.5) pt.Y = (int)doubInt;
+		else pt.Y = (int)++doubInt;
+	}
+	else
+	{
+		if (fabs(d1) < 0.5) pt.Y = (int)doubInt;
+		else pt.Y = (int)--doubInt;
+	}
 	if (!_points.empty())
 	{
 		int position;

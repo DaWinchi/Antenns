@@ -6,6 +6,7 @@
 using namespace Gdiplus;
 using namespace std;
 
+struct Point3D { double x, y, z; };
 class CModelDraw : public CStatic
 {
 
