@@ -93,7 +93,8 @@ REAL CModelDraw::Height(LPDRAWITEMSTRUCT RECT, float height)
 void CModelDraw::Update()
 {
 	RedrawWindow();
-}BEGIN_MESSAGE_MAP(CModelDraw, CStatic)
+}
+BEGIN_MESSAGE_MAP(CModelDraw, CStatic)
 ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 

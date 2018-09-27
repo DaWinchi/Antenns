@@ -93,9 +93,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Учеба\Магистратура\1 курс\Многомерные данные\Antenna\glutdlls37beta;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>D:\Учеба\Магистратура\1 курс\Многомерные данные\Antenna\glutdlls37beta;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glut32.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -139,11 +142,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Учеба\Магистратура\1 курс\Многомерные данные\Antenna\glutdlls37beta;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>D:\Учеба\Магистратура\1 курс\Многомерные данные\Antenna\glutdlls37beta;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glut32.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -185,6 +191,7 @@
   <ItemGroup>
     <ClInclude Include="Antenna.h" />
     <ClInclude Include="AntennaDlg.h" />
+    <ClInclude Include="CDrawer3D.h" />
     <ClInclude Include="CModelDraw.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -193,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="Antenna.cpp" />
     <ClCompile Include="AntennaDlg.cpp" />
+    <ClCompile Include="CDrawer3D.cpp" />
     <ClCompile Include="CModelDraw.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

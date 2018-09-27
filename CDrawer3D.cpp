@@ -1,26 +1,26 @@
 #include "stdafx.h"
-#include "CDrawer.h"
+#include "CDrawer3D.h"
 
 
-CDrawer::CDrawer()
+CDrawer3D::CDrawer3D()
 {
 }
 
 
-CDrawer::~CDrawer()
+CDrawer3D::~CDrawer3D()
 {
 	wglMakeCurrent(pDC->GetSafeHdc(), 0);
 	wglDeleteContext(wglGetCurrentContext());
 }
 
-void CDrawer::Draw()
+void CDrawer3D::Draw()
 {
 	glClearColor(0.5f, 0.5f, 0.5f, 0.5);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-3, 3, -3, 3, -3, 3);
+	glOrtho(-200, 200, -200, 200, -200, 200);
 
 	glTranslated(0.f, 0.f, 0.0f);
 	glMatrixMode(GL_MODELVIEW);
@@ -34,7 +34,7 @@ void CDrawer::Draw()
 	glPolygonMode(GL_FRONT_AND_BACK, GL_QUADS);//
 	glBegin(GL_QUADS);
 	
-	double max = 0, min = 0;
+	double max = 0, min = 0.1;
 	for (int i = 0; i < points[0].size(); i++)
 	{
 		for (int j = 0; j < points[0][i].size(); j++)
@@ -74,11 +74,15 @@ void CDrawer::Draw()
 		}
 	}
 	glEnd();
+	/*glBegin(GL_LINES);
+	glColor3d(1.0, 0, 0);
+	glVertex3d(1,0,1)
+	glEnd();*/
 	glFinish();
 	SwapBuffers(wglGetCurrentDC());
 }
 
-void CDrawer::InitiateOPGL(CRect & rt, CDC* pdc)
+void CDrawer3D::InitiateOPGL(CRect & rt, CDC* pdc)
 {
 	rect = rt;
 	pDC = pdc;
@@ -105,7 +109,7 @@ void CDrawer::InitiateOPGL(CRect & rt, CDC* pdc)
 
 }
 
-BOOL CDrawer::bSetupPixelFormat()
+BOOL CDrawer3D::bSetupPixelFormat()
 {
 	static PIXELFORMATDESCRIPTOR pfd =
 	{

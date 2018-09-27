@@ -3,17 +3,14 @@
 #include <gl/GL.h>
 #include "glut.h"
 #include <vector>
+#include "CModelDraw.h"
 
-struct Point3D
-{
-	double x, y, z;
-};
 
-class CDrawer
+class CDrawer3D
 {
 public:
-	CDrawer();
-	~CDrawer();
+	CDrawer3D();
+	~CDrawer3D();
 
 	double *angleX, *angleY, *zoom;
 	void Draw();
