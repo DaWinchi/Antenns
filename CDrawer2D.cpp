@@ -25,7 +25,7 @@ CDrawer2D::~CDrawer2D()
 void CDrawer2D::DrawItem(LPDRAWITEMSTRUCT RECT)
 {
 	Graphics gr(RECT->hDC);
-	if (_image != nullptr)
+	if (_image[0].size()>0)
 	{
 		size_t width = _image[0][0].size();
 		size_t height = _image->size();
@@ -50,7 +50,7 @@ void CDrawer2D::DrawItem(LPDRAWITEMSTRUCT RECT)
 		{
 			for (int j = 0; j < width; j++)
 			{
-				double val = _image[0][i][j];
+				double val = _image[0][i][j]/max*255.0;
 				Color color;
 				color = Color::MakeARGB(255, val, val, val);
 				bmpBuffer.SetPixel(j, height -1 - i, color);
