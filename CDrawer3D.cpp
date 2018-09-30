@@ -34,13 +34,20 @@ void CDrawer3D::Draw()
 	glPolygonMode(GL_FRONT_AND_BACK, GL_QUADS);//
 	glBegin(GL_QUADS);
 	
-	double max = 0, min = 0.1;
+	double max = 0, width = points[0][0].size()/2;
 	for (int i = 0; i < points[0].size(); i++)
 	{
 		for (int j = 0; j < points[0][i].size(); j++)
 		{
 			if (points[0][i][j].z > max) max = points[0][i][j].z;
-			if (points[0][i][j].z < min) min = points[0][i][j].z;
+		}
+	}
+
+	for (int i = 0; i < points[0].size(); i++)
+	{
+		for (int j = 0; j < points[0][i].size(); j++)
+		{
+			points[0][i][j].z = points[0][i][j].z / max * width;
 		}
 	}
 
@@ -59,17 +66,13 @@ void CDrawer3D::Draw()
 			{
 				jup -= 2;
 			}
-			if (points[0][i][j].z<0) glColor3f(0, 0, points[0][i][j].z/min);
-			else glColor3f(points[0][i][j].z / max, 0, 0);
+			glColor3f(points[0][i][j].z / max, 0, 0);
 			glVertex3d(points[0][i][j].x , points[0][i][j].y,points[0][i][j].z);
-			if (points[0][iright][j].z<0) glColor3f(0, 0, points[0][iright][j].z / min); 
-			else glColor3f(points[0][iright][j].z / max, 0, 0);
+			glColor3f(points[0][iright][j].z / max, 0, 0);
 			glVertex3d(points[0][iright][j].x, points[0][iright][j].y, points[0][iright][j].z);
-			if (points[0][iright][jup].z<0) glColor3f(0, 0,points[0][iright][jup].z / min); 
-			else glColor3f(points[0][iright][jup].z / max, 0, 0);
+			glColor3f(points[0][iright][jup].z / max, 0, 0);
 			glVertex3d(points[0][iright][jup].x, points[0][iright][jup].y, points[0][iright][jup].z);
-			if (points[0][i][jup].z<0) glColor3f(0, 0, points[0][i][jup].z / min); 
-			else glColor3f(points[0][i][jup].z / max, 0, 0);
+			glColor3f(points[0][i][jup].z / max, 0, 0);
 			glVertex3d(points[0][i][jup].x, points[0][i][jup].y, points[0][i][jup].z);
 		}
 	}
