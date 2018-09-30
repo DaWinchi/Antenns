@@ -15,12 +15,13 @@ CDrawer3D::~CDrawer3D()
 
 void CDrawer3D::Draw()
 {
-	glClearColor(0.5f, 0.5f, 0.5f, 0.5);
+	double width = points[0][0].size() / 2;
+	glClearColor(0.5f, 0.5f, 1.f, 0.5);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-200, 200, -200, 200, -200, 200);
+	glOrtho(-width*2.0, width*2.0, -width * 2.0, width*2.0, -width * 2.0, width*2.0);
 
 	glTranslated(0.f, 0.f, 0.0f);
 	glMatrixMode(GL_MODELVIEW);
@@ -34,7 +35,7 @@ void CDrawer3D::Draw()
 	glPolygonMode(GL_FRONT_AND_BACK, GL_QUADS);//
 	glBegin(GL_QUADS);
 	
-	double max = 0, width = points[0][0].size()/2;
+	double max = 0;
 	for (int i = 0; i < points[0].size(); i++)
 	{
 		for (int j = 0; j < points[0][i].size(); j++)

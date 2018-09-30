@@ -62,7 +62,7 @@ void CModelDraw::DrawItem(LPDRAWITEMSTRUCT RECT)
 		SolidBrush brushDot(Color::Red);
 		for (size_t i = 0; i < _points.size(); i++)
 		{
-			grBmp.FillEllipse(&brushDot, X(RECT, _points[i].X) - 3.f, Y(RECT, _points[i].Y) - 3.f, 6.f, 6.f);
+			grBmp.FillEllipse(&brushDot, X(RECT, _points[i].X) - 6.f, Y(RECT, _points[i].Y) - 6.f, 12.f, 12.f);
 		}
 	}
 	
